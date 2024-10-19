@@ -5,7 +5,7 @@
 }
 
 .characters-section{
-  text-align: center;
+  text-align: start;
 }
 
 .title{
@@ -20,4 +20,31 @@
   gap:20px
 }
 
-.characters-card
+.character-card {
+  background-color: #472525;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.character-card:hover {
+transform: translateY(-7px);
+}
+
+.character-name {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #34c7cf;
+}
+
+.character-info {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.character-image {
+  width: 100%;
+  border-radius: 5px;
+}

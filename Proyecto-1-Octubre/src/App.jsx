@@ -1,11 +1,13 @@
 
-import './App.css'
-import Componente from "./Componente.jsx"
+import './App.css';
+import Componente from "./Componente.jsx";
+import Contador from "./Contador.jsx";
 
 function App() {
   return (
     <>
-      <Componente/>
+    <h1>Multi apps</h1>
+    <Contador/>
     </>
   )
 }

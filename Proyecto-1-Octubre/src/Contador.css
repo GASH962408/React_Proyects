@@ -1,0 +1,107 @@
+/* Estilos para la Lista de Tareas */
+
+/* Contenedor principal */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Título */
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Input para añadir tarea */
+input[type="text"] {
+  width: calc(100% - 100px);
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+/* Botones */
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover en botones */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Botón de eliminar (rojo) */
+button.eliminar {
+  background-color: #dc3545;
+}
+
+button.eliminar:hover {
+  background-color: #c82333;
+}
+
+/* Botón de editar (amarillo) */
+button.editar {
+  background-color: #ffc107;
+}
+
+button.editar:hover {
+  background-color: #e0a800;
+}
+
+/* Lista de tareas */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Texto de las tareas */
+span {
+  font-size: 16px;
+  color: #333;
+  flex: 1;
+}
+
+/* Estilos de edición */
+input.edit {
+  width: 60%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+}
