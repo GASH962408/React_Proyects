@@ -1,72 +1,45 @@
-import React, { useState, useRef } from 'react';
-import "./Contador.css"; // Importar los estilos CSS
+import React, { useState, useRef, useEffect } from 'react';
+import './TodoList.css';
+
 
 const TodoList = () => {
   const [tareas, setTareas] = useState([]);
-  const [nuevaTarea, setNuevaTarea] = useState('');
-  const [editando, setEditando] = useState(null);
-  const [tareaEditada, setTareaEditada] = useState('');
-  const inputEditRef = useRef(null);
+  const [modoOscuro, setModoOscuro] = useState(true);
+  const [input, setInput] = useState("")
+  const [tarea, setTarea] = useState(null);
 
-  const handleAgregarTarea = () => {
-    if (nuevaTarea.trim() === '') return;
-    setTareas([...tareas, { id: Date.now(), texto: nuevaTarea }]);
-    setNuevaTarea('');
-  };
+  useEffect(() => {
+      document.body.className = modoOscuro? "oscuro":"claro";
+  }, [modoOscuro])
 
-  const handleEliminarTarea = (id) => {
-    setTareas(tareas.filter(tarea => tarea.id !== id));
-  };
+  const add = () => {
+    if (input.trim() !== "" ) {
+      setTareas([...tareas,{text:tarea,completed:false}]);
+      setInput("");
+    }}
 
-  const handleEditarTarea = (id, texto) => {
-    setEditando(id);
-    setTareaEditada(texto);
-    setTimeout(() => inputEditRef.current?.focus(), 100);
-  };
+  const done = (id) => {
+    setTareas(tareas.map(tarea => tarea.id==id ? {...tarea,completed:true}:tarea   ))
+    };
 
-  const handleConfirmarEdicion = (id) => {
-    setTareas(tareas.map(tarea => tarea.id === id ? { ...tarea, texto: tareaEditada } : tarea));
-    setEditando(null);
-    setTareaEditada('');
-  };
+    const delete=(id) =>{
+      setTareas(tareas.filter(tarea => tarea.id!==id))
+    }
 
-  return (
-    <div className="container">
-      <h2>Lista de Tareas</h2>
-      <input
-        type="text"
-        placeholder="Añadir tarea"
-        value={nuevaTarea}
-        onChange={(e) => setNuevaTarea(e.target.value)}
-      />
-      <button onClick={handleAgregarTarea}>Añadir Tarea</button>
+    )
 
-      <ul>
-        {tareas.map((tarea) => (
-          <li key={tarea.id}>
-            {editando === tarea.id ? (
-              <div>
-                <input
-                  ref={inputEditRef}
-                  className="edit"
-                  type="text"
-                  value={tareaEditada}
-                  onChange={(e) => setTareaEditada(e.target.value)}
-                />
-                <button onClick={() => handleConfirmarEdicion(tarea.id)}>Guardar</button>
-              </div>
-            ) : (
-              <div>
-                <span>{tarea.texto}</span>
-                <button className="editar" onClick={() => handleEditarTarea(tarea.id, tarea.texto)}>Editar</button>
-                <button className="eliminar" onClick={() => handleEliminarTarea(tarea.id)}>Eliminar</button>
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+    const handleEliminarTarea = (id) => {
+      setTareas(tareas.filter(tarea => tarea.id !== id));
+    };
+
+  return(
+    <div>
+      <input type="text"
+      value={input}
+      onChange={(e)=>setTarea(e.target.value)} />
     </div>
-  );
-};
+  )
 
+
+}
 export default TodoList;
