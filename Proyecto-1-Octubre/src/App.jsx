@@ -1,13 +1,13 @@
 
 import './App.css';
-import Componente from "./Componente.jsx";
-import Contador from "./Contador.jsx";
+import Weather from "./Componentes/Weather.jsx";
+
 
 function App() {
   return (
     <>
-    <h1>Multi apps</h1>
-    <Contador/>
+    <h1>Prueba de Weather API</h1>
+    <Weather/>
     </>
   )
 }
